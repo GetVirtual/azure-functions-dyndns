@@ -1,0 +1,10 @@
+{
+  "frameworks": {
+    "netstandard2.0":{
+      "dependencies": {
+        "Microsoft.Rest.ClientRuntime.Azure.Authentication": "2.3.4",
+        "Microsoft.Azure.Management.Dns": "3.0.0"
+      }
+    }
+   }
+}
