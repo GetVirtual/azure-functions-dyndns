@@ -13,6 +13,7 @@ using Microsoft.Azure.Management.Dns;
 using Microsoft.Azure.Management.Dns.Models;
 using System.Linq;
 using System.Net.Http;
+using System;
 
 namespace azure_functions_dyndns
 {
@@ -35,12 +36,12 @@ namespace azure_functions_dyndns
             log.Info("IP update request received: " + ip);
 
             // Build the service credentials and DNS management client
-            var tenantId = ConfigurationManager.AppSettings["TenantId"];
-            var clientId = ConfigurationManager.AppSettings["AppId"];
-            var secret = ConfigurationManager.AppSettings["AppSecret"];
-            var subscriptionId = ConfigurationManager.AppSettings["SubscriptionId"];
-            var resourceGroupName = ConfigurationManager.AppSettings["ResourceGroupName"];
-            var zoneName = ConfigurationManager.AppSettings["ZoneName"];
+            var tenantId = Environment.GetEnvironmentVariable("TenantId");
+            var clientId = Environment.GetEnvironmentVariable("AppId");
+            var secret = Environment.GetEnvironmentVariable("AppSecret");
+            var subscriptionId = Environment.GetEnvironmentVariable("SubscriptionId");
+            var resourceGroupName = Environment.GetEnvironmentVariable("ResourceGroupName");
+            var zoneName = Environment.GetEnvironmentVariable("ZoneName");
             var recordSetName = "@";
 
             var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, secret);
