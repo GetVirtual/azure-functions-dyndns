@@ -42,7 +42,7 @@ namespace azure_functions_dyndns
             var subscriptionId = Environment.GetEnvironmentVariable("SubscriptionId");
             var resourceGroupName = Environment.GetEnvironmentVariable("ResourceGroupName");
             var zoneName = Environment.GetEnvironmentVariable("ZoneName");
-            var recordSetName = "@";
+            var recordSetName = Environment.GetEnvironmentVariable("RecordSetName");
 
             var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, secret);
             var dnsClient = new DnsManagementClient(serviceCreds);
