@@ -1,26 +1,27 @@
-
+using System;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Management.Dns;
+using Microsoft.Azure.Management.Dns.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+using Microsoft.Rest.Azure.Authentication;
 using Newtonsoft.Json;
 using System.Net;
-using System.Configuration;
-using Microsoft.Rest.Azure.Authentication;
-using Microsoft.Azure.Management.Dns;
-using Microsoft.Azure.Management.Dns.Models;
 using System.Linq;
 using System.Net.Http;
-using System;
 
-namespace azure_functions_dyndns
+namespace AzureFunctions
 {
     public static class UpdateDns
     {
         [FunctionName("UpdateDns")]
-        public static async System.Threading.Tasks.Task<HttpResponseMessage> RunAsync([HttpTrigger(AuthorizationLevel.Function, "get", Route = null)]HttpRequest req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run(
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
+            ILogger log)
         {
             string ip = req.GetQueryParameterDictionary()
                 .FirstOrDefault(q => string.Compare(q.Key, "ip", true) == 0)
@@ -33,7 +34,7 @@ namespace azure_functions_dyndns
                 return new HttpResponseMessage(HttpStatusCode.BadRequest);
             }
 
-            log.Info("IP update request received: " + ip);
+            log.LogInformation("IP update request received: " + ip);
 
             // Build the service credentials and DNS management client
             var tenantId = Environment.GetEnvironmentVariable("TenantId");
@@ -60,7 +61,7 @@ namespace azure_functions_dyndns
                 // Note: ETAG check specified, update will be rejected if the record set has changed in the meantime
                 recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSet, recordSet.Etag);
 
-                log.Info("IP changed from " + currentIp + " to " + ip);
+                log.LogInformation("IP changed from " + currentIp + " to " + ip);
 
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
