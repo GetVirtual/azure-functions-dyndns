@@ -76,7 +76,7 @@ namespace AzureFunctions
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
 
-            return new HttpResponseMessage(HttpStatusCode.Accepted);
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }
 }
