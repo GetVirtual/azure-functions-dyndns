@@ -61,7 +61,17 @@ namespace AzureFunctions
                 // Note: ETAG check specified, update will be rejected if the record set has changed in the meantime
                 recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zoneName, recordSetName, RecordType.A, recordSet, recordSet.Etag);
 
+
+
                 log.LogInformation("IP changed from " + currentIp + " to " + ip);
+
+                // Write a "success" text message
+                var responseMessage = "success";
+                var response = req.HttpContext.Response;
+                response.ContentType = "text/plain";
+                response.StatusCode = (int)HttpStatusCode.OK;
+                await response.WriteAsync(responseMessage);
+                
 
                 return new HttpResponseMessage(HttpStatusCode.OK);
             }
