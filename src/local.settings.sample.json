@@ -1,0 +1,26 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "FUNCTION_APP_EDIT_MODE": "readwrite",
+    "FUNCTIONS_EXTENSION_VERSION": "~4",
+    "ApplicationInsightsAgent_EXTENSION_VERSION": "~2",
+
+    "APPINSIGHTS_INSTRUMENTATIONKEY": "instrumentation_key",
+    "APPLICATIONINSIGHTS_CONNECTION_STRING": "instrumentation_connection_string",
+    
+    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=accountname;AccountKey=accountkey",
+    "WEBSITE_CONTENTAZUREFILECONNECTIONSTRING": "DefaultEndpointsProtocol=https;AccountName=accountname;AccountKey=accountkey",
+    "WEBSITE_CONTENTSHARE": "storage_content_share",
+    "WEBSITE_NODE_DEFAULT_VERSION": "8.11.1",
+    
+    "TenantId": "app_registration_entra_tenant_id_or_empty_for_use_of_managed_identity",
+    "AppId": "app_registration_or_user_assigned_managed_identity_client_id_or_empty_for_system_assigned_managed_identity",
+    "AppSecret": "app_registration_client_secret_or_empty_for_use_of_managed_identity",
+        
+    "SubscriptionId": "dns_zone_subscription_guid",
+    "ResourceGroupName": "dns_zone_resource_group",
+    "ZoneName": "dns_zone_name",
+    "RecordSetName": "@"
+  }
+}
