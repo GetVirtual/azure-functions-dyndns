@@ -12,11 +12,11 @@ namespace AzureFunctions
 {
   public class UpdateDns
   {
-    private readonly ILogger _logger;
+    private readonly ILogger<UpdateDns> _logger;
 
-    public UpdateDns(ILoggerFactory loggerFactory)
+    public UpdateDns(ILogger<UpdateDns> logger)
     {
-      _logger = loggerFactory.CreateLogger<UpdateDns>();
+      _logger = logger;
     }
 
     [Function("UpdateDns")]
@@ -31,7 +31,7 @@ namespace AzureFunctions
           ContentTypes = { "text/plain" }
         };
       }
-
+      
       _logger.LogInformation("IP update request received: {ip}", ip);
 
       var tenantId = Environment.GetEnvironmentVariable("TenantId");
