@@ -1,0 +1,44 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "azure-functions-dyndns-core", "src\azure-functions-dyndns-core.csproj", "{4EB83C9A-9347-5FA6-9761-5969975CC322}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "obj", "obj", "{D68A82F2-4BE7-6FCF-0BE9-8C33A622C33E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Debug", "Debug", "{F8421908-64ED-96A6-8F3A-7827795B51D8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net8.0", "net8.0", "{8A2C8D09-EE59-60B3-D51D-D4DC43BA8B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerExtensions", "src\obj\Debug\net8.0\WorkerExtensions\WorkerExtensions.csproj", "{017934E4-4922-76C7-4E04-9B7B43D16B18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EB83C9A-9347-5FA6-9761-5969975CC322}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EB83C9A-9347-5FA6-9761-5969975CC322}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EB83C9A-9347-5FA6-9761-5969975CC322}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EB83C9A-9347-5FA6-9761-5969975CC322}.Release|Any CPU.Build.0 = Release|Any CPU
+		{017934E4-4922-76C7-4E04-9B7B43D16B18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{017934E4-4922-76C7-4E04-9B7B43D16B18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{017934E4-4922-76C7-4E04-9B7B43D16B18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{017934E4-4922-76C7-4E04-9B7B43D16B18}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D68A82F2-4BE7-6FCF-0BE9-8C33A622C33E} = {827E0CD3-B72D-47B6-A68D-7590B98EB39B}
+		{F8421908-64ED-96A6-8F3A-7827795B51D8} = {D68A82F2-4BE7-6FCF-0BE9-8C33A622C33E}
+		{8A2C8D09-EE59-60B3-D51D-D4DC43BA8B7A} = {F8421908-64ED-96A6-8F3A-7827795B51D8}
+		{017934E4-4922-76C7-4E04-9B7B43D16B18} = {8A2C8D09-EE59-60B3-D51D-D4DC43BA8B7A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11A1E247-3778-4289-888B-130879749BD2}
+	EndGlobalSection
+EndGlobal
